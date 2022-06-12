@@ -23,8 +23,8 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 def root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "title": "Home"})
 
-@app.get("/reciclajes")
-def get_reciclajes(request: Request, db:Session=Depends(db.get_db)):
+@app.get("/personajes")
+def get_personajes(request: Request, db:Session=Depends(db.get_db)):
     result=db.query(models.Personaje).all()
     result2 = jsonable_encoder(result)
     response = []
@@ -32,15 +32,22 @@ def get_reciclajes(request: Request, db:Session=Depends(db.get_db)):
         response.append((persona))
     return templates.TemplateResponse("characters.html", {"request":request, "personajes":response, "title":"List persoanejs"})
 
+@app.get("/tecnologias")
+def get_tecnologias(request: Request):
+    return templates.TemplateResponse("tecnologias.html", {"request": request, "title": "Home"})
 
+@app.get("/aventuras")
+def get_aventuras(request: Request, db:Session=Depends(db.get_db)):
+    result=db.query(models.Personaje).all()
+    result2 = jsonable_encoder(result)
+    response = []
+    for persona in result2:
+        response.append((persona))
+    return templates.TemplateResponse("aventuras.html", {"request": request,"personajes":response ,"title": "Home"})
 
-@app.post('/usuarios/',response_model=schemas.Personaje)
-def create_users(entrada:schemas.Personaje, db:Session=Depends(db.get_db)):
-    usuario = models.Personaje(id = entrada.id, rol = entrada.rol, caracteristicas = entrada.caracteristicas, imagen = entrada.c)
-    db.add(usuario)
-    db.commit()
-    db.refresh(usuario)
-    return usuario
+@app.get("/reseña")
+def get_reseña(request: Request):
+    return templates.TemplateResponse("reseña.html", {"request": request, "title": "Home"})
 
 
 
