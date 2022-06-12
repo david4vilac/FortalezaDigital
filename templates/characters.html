@@ -1,0 +1,15 @@
+
+{% include 'navbar.html' %}
+<h1>Personajes: </h1>
+
+
+<div class="container">
+  <div class="row">
+    {% for personaje in personajes %}
+    {% include 'personaje.html' %}
+    {% endfor %}
+  </div>
+</div>
+
+  
+{% include 'footer.html' %}
