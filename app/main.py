@@ -55,22 +55,22 @@ def perfil_personaje(request: Request, id: str, db: Session = Depends(db.get_db)
 
 @app.get("/tecnologias")
 def get_tecnologias(request: Request, db: Session = Depends(db.get_db)):
-    result = db.query(models.Personaje).all()
+    result = db.query(models.Tecnologia).all()
     result2 = jsonable_encoder(result)
     response = []
     for persona in result2:
         response.append((persona))
-    return templates.TemplateResponse("tecnologias.html", {"request": request, "personajes": response, "title": "Home"})
+    return templates.TemplateResponse("tecnologias.html", {"request": request, "tecnologias": response, "title": "Home"})
 
 
-@app.get("/aventuras")
+@app.get("/aventura")
 def get_aventuras(request: Request, db: Session = Depends(db.get_db)):
     result = db.query(models.Personaje).all()
     result2 = jsonable_encoder(result)
     response = []
     for persona in result2:
         response.append((persona))
-    return templates.TemplateResponse("aventuras.html", {"request": request, "personajes": response, "title": "Home"})
+    return templates.TemplateResponse("aventura.html", {"request": request, "personajes": response, "title": "Home"})
 
 
 @app.get("/reseña")

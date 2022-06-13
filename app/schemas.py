@@ -10,3 +10,13 @@ class Personaje(BaseModel):
     
     class Config:
         orm_mode = True
+        
+class Personaje(BaseModel):
+    nombre: str
+    descripcion: str
+    aparicion: str
+    uso: str
+    imagen: str    
+    
+    class Config:
+        orm_mode = True

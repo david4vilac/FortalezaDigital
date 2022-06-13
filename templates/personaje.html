@@ -1,14 +1,12 @@
-
-
 <div class="col-md-4">
     <div class="card" style="width: 18rem;">
         <img src={{personaje['imagen']}} height="150px" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Nombre: {{personaje['id']}}</h5>
-          {% if personaje['rol'] == 'Primario'%}
-          <p>Rol: <span class="badge badge-pill badge-primary">Primario</span></p>
+          {% if personaje['rol'] == 'Principal'%}
+          <p>Rol:<span class="badge rounded-pill bg-primary">Principal</span></p>
           {% else %}
-          <p>Rol: <span class="badge badge-pill badge-secondary">Secundario</span></p>
+          <p>Rol: <span class="badge rounded-pill bg-secondary">Secundario</span></p>
           {% endif %}
           <a href="/personajes/{{personaje['id']}}" class="btn btn-primary">Más Información</a>
         </div>
