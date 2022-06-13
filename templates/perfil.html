@@ -1,3 +1,23 @@
 {% include 'navbar.html' %}
-<p>{{personaje}}</p>
+<h2 class="text-center mt-4">Perfil Personaje</h2>
+<div class="card mt-4 p-4">
+    <div class="card-header">
+      <h2 class= "text-center">Nombre: {{personaje['id']}}</h2>
+    </div>
+    <div class="card-body">
+        <div class = "row no-gutters">
+            <div class="col-md-4">
+                <img src={{personaje['imagen']}} height="300px" class="card-img-top" alt="...">
+            </div>
+            <div class="col-md-8 content-center">
+                <h5 class="card-title text-center">Información Personaje</h5>
+                <p class="card-text text-center"><strong>Rol:</strong> {{personaje['rol']}}</p>
+                <p class="card-text text-center"><strong>Profesión:</strong> {{personaje['profesion']}}</p>
+                <p class="card-text text-center"><strong>Caracteristicas:</strong> {{personaje['caracteristicas']}}</p>
+            </div>
+    </div>
+    
+      
+    </div>
+  </div>
 {% include 'footer.html' %}

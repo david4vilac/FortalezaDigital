@@ -5,10 +5,12 @@
         <img src={{personaje['imagen']}} height="150px" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Nombre: {{personaje['id']}}</h5>
-          <p class="card-text">Rol: {{personaje['rol']}}</p>
-          <p class="card-text">Profesion: {{personaje['profesion']}}</p>
-          <p class="card-text">Caracteristicas: {{personaje['caracteristicas']}}</p>
-          <a href="/personajes/{{personaje['id']}}" class="btn btn-primary">Go somewhere</a>
+          {% if personaje['rol'] == 'Primario'%}
+          <p>Rol: <span class="badge badge-pill badge-primary">Primario</span></p>
+          {% else %}
+          <p>Rol: <span class="badge badge-pill badge-secondary">Secundario</span></p>
+          {% endif %}
+          <a href="/personajes/{{personaje['id']}}" class="btn btn-primary">Más Información</a>
         </div>
     </div>
 </div>
